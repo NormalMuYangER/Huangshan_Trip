@@ -39,46 +39,53 @@ document.querySelector('.close-tip').addEventListener('click', function() {
 if (localStorage.getItem('hideLandscapeTip') === 'true') {
     document.getElementById('landscapeTip').style.display = 'none';
 }
+// 修改为B站视频切换逻辑
+const bilibiliVideos = {
+    "01": {
+        bvid: "BV1cfgSzpEvA", // 替换为第一集的BV号
+        title: "EP01 - 初来乍到",
+        desc: "这期内容比较短..."
+    }//,
+    // "02": {
+    //     bvid: "BV1yy411d7nE", // 替换为第二集的BV号
+    //     title: "EP02 - 采茶体验",
+    //     desc: "记录同学们体验采茶的精彩过程！"
+    // }
+};
 
-// 选集点击效果
+// 选集点击事件
 document.querySelectorAll('.episode-item').forEach(item => {
     item.addEventListener('click', function() {
-        // 如果是当前集数则不处理
+        //检查是否有“即将上线”标记
+        if (this.querySelector('.badge')) {
+          this.classList.add('clicked');
+          alert("这集内容正在制作中，敬请期待！");
+          setTimeout(() => this.classList.remove('clicked'), 1000);
+          return;
+        }
+
         if(this.classList.contains('active')) return;
         
-        // 移除所有active类
+        // 更新active状态
         document.querySelectorAll('.episode-item').forEach(el => {
             el.classList.remove('active');
         });
-        
-        // 给当前点击项添加active类
         this.classList.add('active');
         
         // 获取集数
         const episodeNum = this.querySelector('.episode-number').textContent;
+        const videoData = bilibiliVideos[episodeNum];
         
-        // 根据集数切换内容
-        switch(episodeNum) {
-            case '01':
-                document.querySelector('video source').src = '黄山行（1）.mp4';
-                document.querySelector('video').poster = '黄山行（1）-封面.jpg';
-                document.querySelector('.video-title').textContent = 'EP01 - 初来乍到';
-                document.querySelector('.video-desc').textContent = '这期内容比较短，之后可能就长点了……（可前往"精彩图片"查看更多）';
-                break;
-            case '02':
-                document.querySelector('video source').src = '敬请期待.mp4';
-                document.querySelector('video').poster = '敬请期待-封面.jpg';
-                document.querySelector('.video-title').textContent = 'EP02 - 采茶体验';
-                document.querySelector('.video-desc').textContent = '记录同学们体验采茶的精彩过程！';
-                break;
-        }
+        // 更新iframe的src
+        const iframe = document.querySelector('.bilibili-video');
+        iframe.src = `//player.bilibili.com/player.html?bvid=${videoData.bvid}&page=1`;
         
-        // 重新加载视频
-        const video = document.querySelector('video');
-        video.load();
-        video.play().catch(e => console.log('自动播放被阻止:', e));
+        // 更新标题和描述
+        document.querySelector('.video-title').textContent = videoData.title;
+        document.querySelector('.video-desc').textContent = videoData.desc;
     });
 });
+
 
 
 // 关闭横屏提示
