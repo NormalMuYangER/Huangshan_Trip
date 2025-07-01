@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>六年六班黄山行 · 精彩视频</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <!-- 顶部菜单栏 -->
+    <nav class="navbar">
+        <a class="nav-item" href="index.html">首页</a>
+        <a class="nav-item" href="video.html">精彩视频</a>
+        <a class="nav-item" href="photos.html">精美图片</a>
+        <a class="nav-item" href="about.html">关于</a>
+    </nav>
+
+    <!-- 主标题 -->
+    <h1 class="main-title">分集vlog风版本</h1>
+
+    <div id="landscapeTip" class="landscape-tip">
+        建议使用横屏浏览以获得最佳体验
+        <span class="close-tip">✖</span>
+    </div>
+
+    <!-- 视频播放区 -->
+    <div class="video-container">
+        <!-- 选集侧边栏 -->
+        <div class="episode-sidebar">
+            <h3 class="sidebar-title">选集列表</h3>
+            <ul class="episode-list">
+                <li class="episode-item active">
+                    <span class="episode-number">01</span>
+                    <span class="episode-title">初来乍到</span>
+                </li>
+                <li class="episode-item">
+                    <span class="episode-number">02</span>
+                    <span class="episode-title">采茶体验</span>
+                    <span class="badge">即将上线</span>
+                </li>
+            </ul>
+        </div>
+        
+        <!-- 视频播放器 -->
+        <div class="video-player">
+            <video controls poster="黄山行（1）-封面.jpg">
+                <source src="黄山行（1）.mp4" type="video/mp4">
+                您的浏览器不支持HTML5视频
+            </video>
+            <div class="video-info">
+                <h2 class="video-title">EP01 - 初来乍到</h2>
+                <p class="video-desc">这期内容比较短，之后可能就长点了……（可前往“精彩图片”查看更多）</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
