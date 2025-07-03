@@ -44,7 +44,7 @@ const bilibiliVideos = {
     "01": {
         bvid: "BV1cfgSzpEvA", // 替换为第一集的BV号
         title: "EP01 - 初来乍到",
-        desc: "这期内容比较短，之后可能就长点了……（可前往“精彩图片”查看更多）"
+        desc: "这期内容比较短，之后可能就长点了……（可前往“精美图片”查看更多）"
     },
     "02": {
         bvid: "BV1vY3WzMEAj", // 替换为第二集的BV号
