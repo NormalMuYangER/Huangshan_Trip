@@ -50,6 +50,11 @@ const bilibiliVideos = {
         bvid: "BV1vY3WzMEAj", // 替换为第二集的BV号
         title: "EP02 - 采茶体验",
         desc: "记录同学们体验采茶的精彩过程！"
+    },
+    "03": {
+        bvid: "BV1B63azvE3q", // 替换为第二集的BV号
+        title: "EP03 - 攀登黄山",
+        desc: "五岳归来不看山，黄山归来不看岳"
     }
 };
 
